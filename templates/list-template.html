@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet"
+          href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/7.3.0/css/fabric.min.css">
+
+    <link rel="stylesheet"
+          href="https://cdn.materialdesignicons.com/5.1.45/css/materialdesignicons.min.css">
+    <style>
+
+
+        /* External imports */
+
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
+
+        /* Global styles */
+
+        html, body {
+            height: 100%;
+            background: #c0c0c0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        header, footer {
+            text-align: center;
+        }
+
+        h1, h2, ul, p {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        h1, h2 {
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 1.75em;
+            border-bottom: 1px solid #888888;
+        }
+
+        h2 {
+            padding-top: 5px;
+        }
+
+        li {
+            list-style: none;
+            display: inline;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            font-weight: 600;
+        }
+
+        li:last-child {
+            margin-right: 0px;
+        }
+
+        content {
+            font-size: 1rem;
+        }
+
+            content p {
+                padding-left: 10px;
+                padding-right: 10px;
+                line-height: 1.5;
+            }
+
+            content ul li img {
+                height: 150px;
+            }
+
+        footer {
+            height: 50px;
+            margin-top: 15px;
+            font-size: 0.75em;
+            color: #dadada;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        footer a {
+            color: inherit;
+        }
+
+        /* Custom classes */
+
+        content ul li img .small {
+            height: 75px;
+        }
+
+        .quote {
+            width: 75%;
+            margin: 0 auto;
+            padding: 5px;
+            font-style: italic;
+            font-size: 0.75rem;
+            color: #888888;
+            font-weight: 300;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 15px;
+            margin-top: 25px;
+            box-shadow: 10px 10px 5px #aaa;
+            border: #aaa 1px solid;
+        }
+
+        /* Overriding font-awesome styles */
+
+        .mdi {
+            color: #888888;
+            font-size: 1.5rem;
+        }
+
+            .mdi:hover {
+                color: #888888;
+                text-shadow: 1px 1px 1px #888888;
+            }
+    </style>
+</head>
+<body>
+    <div class="ms-Grid">
+        <div class="ms-Grid-col ms-sm0 ms-md0 ms-lg2  ms-xl3 ms-xxl4"></div>
+
+        <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg8  ms-xl6  ms-xxl4 content-wrapper">
+            <div class="card">
+                <header>
+                    <h1>{{ author }}</h1>
+                    <p class="quote">
+                        {{ quote }}
+                    </p>
+                </header>
+
+                <content>
+                    <center>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="https://github.com/{{ github }}" title="Github: {{ github }}"
+                                   alt="Github: {{ github }}"><i class="mdi mdi-github"></i></a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://twitter.com/{{ twitter }}" title="Twitter: @{{ twitter }}"
+                                   alt="Twitter: @{{ twitter }}"><span class="mdi mdi-twitter"></span></a>
+                            </li>
+                        </ul>
+                    </center>
+                </content>
+            </div>
+
+            {{ content }}
+        </div>
+
+        <div class="ms-Grid-col ms-sm0 ms-md0 ms-lg2  ms-xl3 ms-xxl4"></div>
+    </div>
+
+    <footer>
+        <p>
+            Build with <a href="https://developer.microsoft.com/en-us/fabric"> Office Fabric</a> and <a href="http://materialdesignicons.com">materialdesignicons.com</a> icons.
+        </p>
+    </footer>
+</body>
+</html>
