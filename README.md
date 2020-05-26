@@ -23,7 +23,7 @@ Check the issues of this repository, you will see that these are the same as in 
 ![Sample blog screenshot](sample-blog.png)
 
 ## Contributing
-This is just a fancy-minded weeend project proof of concept. That means, no contribution is necessary.
+This is just a fancy-minded weekend project proof of concept. That means, no contribution is necessary but appreciated.
 
 ## Authors
 Just me, [Tobi]([https://tscholze.github.io).
