@@ -3,7 +3,7 @@
 $Author = "John Doe"
 $Quote = "We can only see a short distance ahead, but we can see plenty there that needs to done.\n\n-Adam Touring"
 $GitHubUser = "tscholze"
-$GitHubRepository = "xamarin-road-to-surface-duo"
+$GitHubRepository = "powershell-github-issue-blogger"
 $Twitter = "tobonaut"
 
 
@@ -14,6 +14,7 @@ Set-Variable ListFileName -Option Constant -Value "index.html"
 Set-Variable ListTemplatePath -Option Constant -Value "./templates/list-template.html"
 Set-Variable ListItemTemplatePath -Option Constant -Value "./templates/list-item-template.html"
 Set-Variable PostTemplatePath -Option Constant -Value "./templates/detail-template.html"
+Set-Variable RssHubUri -Option Constant -Value "https://rsshub.app/github/issue/$GitHubUser/$GitHubRepository/all"
 
 function Get-FilePath {
     [CmdletBinding()]
@@ -65,9 +66,15 @@ function New-ListItem {
         # Get template
         $template = Get-Content -Path $ListItemTemplatePath
 
+        # Get content and trim if nessesary
+        $content = $Element.description.InnerText
+        if($content.Length -ge 350) {
+            $content = $content.substring(0, [System.Math]::Min(347, $content.Length)) + "..."
+        }
+
         # Update template with xml element values
         $template = $template -replace "{{ title }}", $Element.title.InnerText
-        $template = $template -replace "{{ content }}", $Element.description.InnerText
+        $template = $template -replace "{{ content }}", $content
         $template = $template -replace "{{ link }}", (Get-FilePath -Element $Element)
 
         # Return the populated template.
@@ -165,9 +172,11 @@ function New-Post {
     }
 }
 
+#Greet the user
+Write-Host "Welcome!\nReading information from: '$RssHubUri'"
 
 # Load information from web service
-$response = Invoke-WebRequest -Uri  "https://rsshub.app/github/issue/tscholze/xamarin-road-to-surface-duo/all"
+$response = Invoke-WebRequest -Uri  $RssHubUri
 
 # Convert it into a xml document
 [xml]$xml = $response.Content 
@@ -179,3 +188,6 @@ New-List $xml.rss.channel
 ForEach ($msg in $xml.rss.channel.item) {
     (New-Post $msg)
 }
+
+# Log finished
+Write-Host "Done!"
