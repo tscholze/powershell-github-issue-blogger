@@ -18,7 +18,7 @@ GitHub Issue Blogger
 - `docs` will be filled populated with the generated files
 
 ## Sample
-Check the issues of this repository, you will see that these are the same as in the rendered demo blog [at the repository's GitHub page.](https://tscholze.github.io/dotnet-github-issue-blogger/)
+Check the issues of this repository, you will see that these are the same as in the rendered demo blog [at the repository's GitHub page.](https://tscholze.github.io/powershell-github-issue-blogger/)
 
 ![Sample blog screenshot](sample-blog.png)
 
