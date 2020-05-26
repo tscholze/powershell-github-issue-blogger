@@ -120,6 +120,7 @@ function New-List {
         }
 
         # Update template with xml element values
+        $template = $template -replace "{{ title }}", $Author
         $template = $template -replace "{{ author }}", $Author
         $template = $template -replace "{{ quote }}", $Quote
         $template = $template -replace "{{ github }}", $GitHubUser
