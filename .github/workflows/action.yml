@@ -13,14 +13,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      # Checkout
+      - uses: actions/checkout@v2
 
-    - name: Run
-      shell: pwsh
-      run: |
-        .\converter.ps1
-        
-    - name: GitHub Push
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: secrets.GITHUB_TOKEN 
+      # Run PowerShell script
+      - name: Run PowerShell script
+        shell: pwsh
+        run: .\converter.ps1
+      
+      # Git Commit and Push
+      - name: Git Commit and Push
+        uses: github-actions-x/commit@v2.6
+        with:
+          github-token: secrets.GITHUB_TOKEN 
