@@ -39,5 +39,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Dependencies or assets maybe licensed differently.
 
 ## Acknowledgments
-- [Microsoft Office Fabric](https://developer.microsoft.com/en-us/fabric))
+- [Microsoft Office Fabric](https://developer.microsoft.com/en-us/fabric)
 - [Material Design Icons](http://materialdesignicons.com)
