@@ -1,15 +1,16 @@
-# This is a basic workflow to help you get started with Actions
-
+# General Action information
 name: Update-Blog
 
+# Action should run each time a new issue has been opened (created).
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  issues:
+    types: [opened]
 
 jobs:
   update-blog:
+    # Run on ubuntu to save minute quota.
+    # Windows has factor 10 per minute.
+    # Linux just factor 1.
     runs-on: ubuntu-latest
 
     steps:
