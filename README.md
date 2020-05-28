@@ -1,4 +1,4 @@
-GitHub Issue Blogger
+GitHub Issue Blogger with PowerShell and GitHub Actions
 ======
 > Weekend project as a proof of concept on how to use GitHub issues as a blog post "database". It uses the middleman service [RSSHub.app](https://rsshub.app). The PowerShell fetches the issues of your public repository and convertes it into template-styled blog posts.
 
@@ -12,10 +12,16 @@ GitHub Issue Blogger
 4. Run the script
 5. Visit your published app at `https://<user>.github.io/<repo>/`
 
-## Folder structure
+## Using GitHub Actions
+On each Issue opened event, the GitHub Action will trigger a script run which updates the repository with newly generated files.
 
+**Caution**
+Sometimes the refresh rate of RSSHub is slower than you create new issues. If this happens wait an hour and rerun the action by hand using the *Actions* tab item in the GitHub's repository page.
+
+## Folder structure
 - `templates/` contains all required template files with embedded placeholders
-- `docs` will be filled populated with the generated files
+- `docs/` will be filled populated with the generated files
+- `.github/workflows` contains the GitHub Action script
 
 ## Sample
 Check the issues of this repository, you will see that these are the same as in the rendered demo blog [at the repository's GitHub page.](https://tscholze.github.io/powershell-github-issue-blogger/)
