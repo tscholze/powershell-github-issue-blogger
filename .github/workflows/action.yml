@@ -24,7 +24,7 @@ jobs:
       
       # Git Commit and Push
       - name: Git Commit and Push
-      - uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Updated blog content
           push_options: '--force'
